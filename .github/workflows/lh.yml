@@ -9,6 +9,11 @@ jobs:
         uses: jakejarvis/lighthouse-action@master
         with:
           url: "https://katydecorah.com/"
+      - name: Upload results as an artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: report
+          path: './report'
       - name: Checkout
         uses: actions/checkout@v1
       - name: Hello world action step
