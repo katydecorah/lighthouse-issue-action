@@ -1,0 +1,21 @@
+name: Lighthouse Audit
+on: push
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Audit live URL
+        uses: jakejarvis/lighthouse-action@master
+        with:
+          url: "https://katydecorah.com/"
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          CONTENT_FILEPATH: /home/runner/work/katydecorah.github.io/katydecorah.github.io/report/https___katydecorah_com_.report.html
+      # Use the output from the `hello` step
+      - name: Get the output json
+        run: echo "The json was ${{ steps.hello.outputs.json }}"
