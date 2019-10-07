@@ -16,11 +16,3 @@ jobs:
           path: './report'
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
-        with:
-          CONTENT_FILEPATH: /home/runner/work/lighthouse-issue-action/lighthouse-issue-action/report/https___katydecorah_com_.report.json
-      # Use the output from the `hello` step
-      - name: Get the output json
-        run: echo "The json was ${{ steps.hello.outputs.json }}"
