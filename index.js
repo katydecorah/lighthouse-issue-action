@@ -5,7 +5,7 @@ const fs = require('fs');
 const { join } = require('path')
 
 async function main(scores) {
-  const path = join(process.cwd(), 'report/scores.json')
+  const path = join(process.cwd(), 'scores.json')
   await writeFile(path, scores)
 }
 
