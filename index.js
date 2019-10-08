@@ -6,7 +6,7 @@ const { join } = require('path')
 
 async function main(scores) {
   const path = join(process.cwd(), 'scores.md')
-  await writeFile(path, `## Scores\n\n${JSON.stringify(scores,null,2)}`)
+  await writeFile(path, `## Scores\n\n${scores}`)
 }
 
 try {
@@ -16,14 +16,12 @@ try {
   const OUTPUT_FOLDER="report";
   const OUTPUT_PATH=`${process.env.GITHUB_WORKSPACE}/${OUTPUT_FOLDER}/scores.json`;
 
-  const scores = {
-    performance: json.categories.performance.score,
-    accessibility: json.categories.accessibility.score,
-    'best-practices': json.categories['best-practices'].score,
-    seo: json.categories.seo.score
-  };
-
-  core.setOutput("json", JSON.stringify(scores));
+  const scores = `Category | Score
+---|---
+Performance | ${json.categories.performance.score}
+Accessibility | ${json.categories.accessibility.score}
+Best practices | ${json.categories['best-practices'].score}
+SEO | ${json.categories.seo.score}`
 
   main(scores).catch(err => {
       core.setFailed(err.message);
