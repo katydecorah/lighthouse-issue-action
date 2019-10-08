@@ -7,7 +7,7 @@ try {
   const json = JSON.parse(fs.readFileSync(file));
 
   const OUTPUT_FOLDER="report";
-  const OUTPUT_PATH=`${process.envGITHUB_WORKSPACE}/${OUTPUT_FOLDER}/scores.json`;
+  const OUTPUT_PATH=`${process.env.GITHUB_WORKSPACE}/${OUTPUT_FOLDER}/scores.json`;
 
   const scores = {
     performance: json.categories.performance.score,
@@ -18,7 +18,7 @@ try {
 
   core.setOutput("json", scores);
 
-  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(scores, null, 2));
+  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(scores));
 
 } catch (error) {
   core.setFailed(error.message);
