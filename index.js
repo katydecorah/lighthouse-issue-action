@@ -4,9 +4,13 @@ const { writeFile } = require('fs').promises
 const fs = require('fs');
 const { join } = require('path')
 
-async function main(scores) {
+async function main(score) {
   const path = join(process.cwd(), 'scores.md')
   await writeFile(path, `## Scores\n\n${scores}`)
+}
+
+function evalScore(score) {
+  return `(${score < .75 ? '🚨 ' : ''}) ${score}`;
 }
 
 try {
@@ -15,15 +19,16 @@ try {
 
   const OUTPUT_FOLDER="report";
   const OUTPUT_PATH=`${process.env.GITHUB_WORKSPACE}/${OUTPUT_FOLDER}/scores.json`;
+  const scores = json.categories;
 
-  const scores = `Category | Score
+  const score = `Category | Score
 ---|---
-Performance | ${json.categories.performance.score}
-Accessibility | ${json.categories.accessibility.score}
-Best practices | ${json.categories['best-practices'].score}
-SEO | ${json.categories.seo.score}`
+Performance | ${evalScore(scores.performance.score)}
+Accessibility | ${evalScore(scores.accessibility.score)}
+Best practices | ${evalScore(scores['best-practices'].score)}
+SEO | ${evalScore(scores.seo.score)}`
 
-  main(scores).catch(err => {
+  main(score).catch(err => {
       core.setFailed(err.message);
       process.exit(1);
     }).then(() => {
