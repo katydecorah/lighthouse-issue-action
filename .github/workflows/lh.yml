@@ -11,11 +11,6 @@ jobs:
         uses: jakejarvis/lighthouse-action@master
         with:
           url: "https://katydecorah.com/"
-      - name: Upload results as an artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: report
-          path: './report'
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
@@ -24,4 +19,9 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output json
         run: echo "The json was ${{ steps.hello.outputs.json }}"
+      - name: Upload results as an artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: report
+          path: './report'
       
