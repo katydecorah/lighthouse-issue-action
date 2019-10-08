@@ -4,7 +4,7 @@ const { writeFile } = require('fs').promises
 const fs = require('fs');
 
 async function main(scores) {
-  await writeFile('scores.json', scores)
+  await writeFile('./report/scores.json', scores)
 }
 
 try {
