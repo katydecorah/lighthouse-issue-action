@@ -3,8 +3,8 @@ const github = require('@actions/github');
 const { writeFile } = require('fs').promises
 const fs = require('fs');
 
-async function main(scores) {
-  await writeFile('./report/scores.json', scores)
+async function main(path, scores) {
+  await writeFile(path, scores)
 }
 
 try {
@@ -23,7 +23,7 @@ try {
 
   core.setOutput("json", JSON.stringify(scores));
 
-  main();
+  main(OUTPUT_PATH, scores);
 
 
 } catch (error) {
