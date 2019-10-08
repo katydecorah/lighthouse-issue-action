@@ -10,7 +10,7 @@ async function main(score) {
 }
 
 function evalScore(score) {
-  return `(${score < .75 ? '🚨 ' : ''}) ${score}`;
+  return `${score < .75 ? '🚨 ' : ''} ${score * 100.00}%`;
 }
 
 try {
