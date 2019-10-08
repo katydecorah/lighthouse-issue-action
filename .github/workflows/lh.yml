@@ -24,4 +24,10 @@ jobs:
         with:
           name: report
           path: './report'
+      - name: Create Issue From File
+        uses: peter-evans/create-issue-from-file@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_TITLE: Lighthouse Audit
+          ISSUE_CONTENT_FILEPATH: {{GITHUB_WORKSPACE}}/scores.json
       
