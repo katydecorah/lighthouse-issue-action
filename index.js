@@ -18,7 +18,9 @@ try {
 
   core.setOutput("json", JSON.stringify(scores));
 
-  fs.writeFileSync(OUTPUT_PATH, scores);
+  fs.writeFile('scores.json', scores, err => {
+    console.log(err)
+  });
 
 } catch (error) {
   core.setFailed(error.message);
