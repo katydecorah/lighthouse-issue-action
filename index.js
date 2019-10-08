@@ -2,6 +2,9 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const { writeFile } = require('fs').promises
 
+async function main(scores) {
+  await writeFile('scores.json', scores)
+}
 
 try {
   const file = core.getInput('CONTENT_FILEPATH');
@@ -19,15 +22,8 @@ try {
 
   core.setOutput("json", JSON.stringify(scores));
 
-  fs.writeFile('scores.json', scores, err => {
-    if (err) console.log(err)
-    console.log('wrote scores.json')
-  });
+  main();
 
-  // const resultsPath = join(process.cwd(), 'report')
-
-
-  await writeFile('scores.json', report)
 
 } catch (error) {
   core.setFailed(error.message);
