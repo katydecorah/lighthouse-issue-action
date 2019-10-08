@@ -5,6 +5,8 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: Audit live URL
         uses: jakejarvis/lighthouse-action@master
         with:
@@ -14,8 +16,6 @@ jobs:
         with:
           name: report
           path: './report'
-      - name: Checkout
-        uses: actions/checkout@v1
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
@@ -24,3 +24,4 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output json
         run: echo "The json was ${{ steps.hello.outputs.json }}"
+      
