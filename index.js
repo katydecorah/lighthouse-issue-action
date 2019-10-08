@@ -6,7 +6,7 @@ const { join } = require('path')
 
 async function main(score) {
   const path = join(process.cwd(), 'scores.md')
-  await writeFile(path, `## Scores\n\n${scores}`)
+  await writeFile(path, `## Scores\n\n${score}`)
 }
 
 function evalScore(score) {
