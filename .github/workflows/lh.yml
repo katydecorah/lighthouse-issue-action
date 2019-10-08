@@ -29,5 +29,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_TITLE: Lighthouse Audit
-          ISSUE_CONTENT_FILEPATH: {{GITHUB_WORKSPACE}}/scores.json
+          ISSUE_CONTENT_FILEPATH: ${{GITHUB_WORKSPACE}}/scores.json
       
