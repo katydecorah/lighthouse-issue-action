@@ -23,10 +23,10 @@ try {
 
   core.setOutput("json", JSON.stringify(scores));
 
-  main(OUTPUT_PATH, scores).catch(
+  main(OUTPUT_PATH, scores).catch(err => {
       core.setFailed(err.message);
       process.exit(1);
-  ).then(() => {
+    }).then(() => {
     console.log(`done in ${process.uptime()}s`);
     process.exit();
   })
