@@ -11,14 +11,10 @@ jobs:
         uses: jakejarvis/lighthouse-action@master
         with:
           url: "https://katydecorah.com/"
-      - name: Hello world action step
+      - name: Create scores.md
         uses: ./ # Uses an action in the root directory
-        id: hello
         with:
           CONTENT_FILEPATH: ${{ github.workspace }}/report/https___katydecorah_com_.report.json
-      # Use the output from the `hello` step
-      - name: Get the output json
-        run: echo "The json was ${{ steps.hello.outputs.json }}"
       - name: Upload results as an artifact
         uses: actions/upload-artifact@master
         with:
@@ -30,4 +26,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_TITLE: Lighthouse Audit
           ISSUE_CONTENT_FILEPATH: ./scores.md
-      
