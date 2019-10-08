@@ -15,7 +15,7 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: hello
         with:
-          CONTENT_FILEPATH: $GITHUB_WORKSPACE/report/https___katydecorah_com_.report.json
+          CONTENT_FILEPATH: cat $GITHUB_WORKSPACE/report/https___katydecorah_com_.report.json
       # Use the output from the `hello` step
       - name: Get the output json
         run: echo "The json was ${{ steps.hello.outputs.json }}"
