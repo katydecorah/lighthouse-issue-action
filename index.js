@@ -16,9 +16,9 @@ try {
     seo: json.categories.seo.score
   };
 
-  core.setOutput("json", scores);
+  core.setOutput("json", JSON.stringify(scores));
 
-  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(scores));
+  fs.writeFileSync(OUTPUT_PATH, scores);
 
 } catch (error) {
   core.setFailed(error.message);
