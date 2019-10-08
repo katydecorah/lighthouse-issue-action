@@ -2,9 +2,11 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const { writeFile } = require('fs').promises
 const fs = require('fs');
+const { join } = require('path')
 
 async function main(scores) {
-  await writeFile('./report/scores.json', scores)
+  const path = join(process.cwd(), 'report/scores.json')
+  await writeFile(path, scores)
 }
 
 try {
