@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const { writeFile } = require('fs').promises
+const fs = require('fs');
 
 async function main(scores) {
   await writeFile('scores.json', scores)
