@@ -22,12 +22,12 @@ jobs:
       - name: Upload results as an artifact
         uses: actions/upload-artifact@master
         with:
-          name: scores.json
-          path: ./scores.json
+          name: scores.md
+          path: ./scores.md
       - name: Create Issue From File
         uses: peter-evans/create-issue-from-file@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_TITLE: Lighthouse Audit
-          ISSUE_CONTENT_FILEPATH: ./scores.json
+          ISSUE_CONTENT_FILEPATH: ./scores.md
       
