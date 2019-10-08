@@ -10,7 +10,7 @@ try {
     performance: json.categories.performance.score,
     accessibility: json.categories.accessibility.score,
     'best-practices': json.categories['best-practices'].score,
-    seo: json.categories[seo].score
+    seo: json.categories.seo.score
   };
 
   core.setOutput("json", scores);
