@@ -2,11 +2,7 @@ name: Lighthouse Audit
 on: push
 
 env:
-  urls: >-
-    https://katydecorah.com/
-    https://katydecorah.com/playlists/2019-summer/
-    https://katydecorah.com/epicurean/cowboy-cookie-ice-cream/
-    https://katydecorah.com/code/google-sheets-to-gmail-template/
+  url: https://katydecorah.com/
 
 jobs:
   audit:
