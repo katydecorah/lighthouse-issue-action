@@ -12,7 +12,8 @@ jobs:
         uses: treosh/lighthouse-ci-action@v1
         with:
           onlyCategories: performance,accessibility,best-practices,seo
-          urls: ${{github.SITEMAP}}
+          urls: |
+            ${{github.SITEMAP}}
       - name: Create scores.md
         uses: ./ # Uses an action in the root directory
         with:
