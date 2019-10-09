@@ -17,8 +17,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v1
         with:
           onlyCategories: performance,accessibility,best-practices,seo
-          urls: |
-            echo $SITEMAP
+          urls: $SITEMAP
       - name: Create scores.md
         uses: ./ # Uses an action in the root directory
         with:
