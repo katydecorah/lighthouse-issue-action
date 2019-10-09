@@ -18,7 +18,7 @@ jobs:
         with:
           onlyCategories: performance,accessibility,best-practices,seo
           urls: |
-            ${{github.SITEMAP}}
+            ${{env.SITEMAP}}
       - name: Create scores.md
         uses: ./ # Uses an action in the root directory
         with:
