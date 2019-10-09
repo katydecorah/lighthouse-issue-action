@@ -1,15 +1,15 @@
 name: Lighthouse Audit
 on: push
 
-env:
-  SITEMAP: >-
-    https://katydecorah.com/
-    https://katydecorah.com/playlists/2019-summer/
-    https://katydecorah.com/epicurean/cowboy-cookie-ice-cream/
-    https://katydecorah.com/code/google-sheets-to-gmail-template/
 jobs:
   audit:
     runs-on: ubuntu-latest
+    env:
+      SITEMAP: >-
+        https://katydecorah.com/
+        https://katydecorah.com/playlists/2019-summer/
+        https://katydecorah.com/epicurean/cowboy-cookie-ice-cream/
+        https://katydecorah.com/code/google-sheets-to-gmail-template/
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -18,7 +18,7 @@ jobs:
         with:
           onlyCategories: performance,accessibility,best-practices,seo
           urls: |
-            ${{env.SITEMAP}}
+            echo $SITEMAP
       - name: Create scores.md
         uses: ./ # Uses an action in the root directory
         with:
