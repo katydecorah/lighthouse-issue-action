@@ -2,7 +2,7 @@ name: Lighthouse Audit
 on: push
 
 env:
-  SITEMAP: >-
+  urls: >-
     https://katydecorah.com/
     https://katydecorah.com/playlists/2019-summer/
     https://katydecorah.com/epicurean/cowboy-cookie-ice-cream/
@@ -18,7 +18,6 @@ jobs:
         uses: treosh/lighthouse-ci-action@v1
         with:
           onlyCategories: performance,accessibility,best-practices,seo
-          urls: ${{env.SITEMAP}}
       - name: Create scores.md
         uses: ./ # Uses an action in the root directory
         with:
