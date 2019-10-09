@@ -26,7 +26,7 @@ try {
     const json = JSON.parse(fs.readFileSync(file));
     const scores = json.categories;
     const url = json.finalUrl;
-    str += `## ${url}\n\nCategory | Score
+    str += `### Page: ${url}\n\nCategory | Score
 ---|---
 Performance | ${evalScore(scores.performance.score)}
 Accessibility | ${evalScore(scores.accessibility.score)}
