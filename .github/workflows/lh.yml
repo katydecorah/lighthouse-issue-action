@@ -1,12 +1,13 @@
 name: Lighthouse Audit
 on: push
 
-env:
-  url: https://katydecorah.com/
+
 
 jobs:
   audit:
     runs-on: ubuntu-latest
+    env:
+      url: https://katydecorah.com/
     steps:
       - name: Checkout
         uses: actions/checkout@v1
