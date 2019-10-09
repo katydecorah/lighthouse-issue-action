@@ -24,14 +24,28 @@ try {
 
   const md = files.reduce((str, file) => {
     const json = JSON.parse(fs.readFileSync(file));
+
     const scores = json.categories;
+    const perf = scores.performance.score;
+    const accessibility = scores.accessibility.score;
+    const bestPractices = scores['best-practices'].score;
+    const seo = scores.seo.score;
     const url = json.finalUrl;
-    str += `### Page: ${url}\n\nCategory | Score
----|---
-Performance | ${evalScore(scores.performance.score)}
-Accessibility | ${evalScore(scores.accessibility.score)}
-Best practices | ${evalScore(scores['best-practices'].score)}
-SEO | ${evalScore(scores.seo.score)}\n\n`;
+
+    if (
+      perf < 0.75 ||
+      accessibility < 0.75 ||
+      bestPractices < 0.75 ||
+      seo < 0.75
+    ) {
+      str += `### Page: ${url}\n\nCategory | Score
+  ---|---
+  Performance | ${evalScore(perf)}
+  Accessibility | ${evalScore(accessibility)}
+  Best practices | ${evalScore(bestPractices)}
+  SEO | ${evalScore(seo)}\n\n`;
+    }
+
     return str;
   }, '## Scores\n\n');
 
