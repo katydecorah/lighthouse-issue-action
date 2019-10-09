@@ -10,6 +10,7 @@ jobs:
       - name: Audit URLs using Lighthouse and ensure performance budget
         uses: treosh/lighthouse-ci-action@v1
         with:
+          onlyCategories: performance,accessibility,best-practices,seo
           urls: |
             https://katydecorah.com/
             https://katydecorah.com/playlists/2019-summer/
