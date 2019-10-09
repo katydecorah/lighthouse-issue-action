@@ -18,12 +18,11 @@ try {
   const filePath = core.getInput('FILEPATH');
   // get all json files
   let files = fs.readdirSync(filePath).reduce((arr, file) => {
-    arr.push(`${filePath}${file}`);
+    if (path.extname(file) === '.json') arr.push(`${filePath}${file}`);
     return arr;
   }, []);
 
   const md = files.reduce((str, file) => {
-    console.log(file)
     const json = JSON.parse(fs.readFileSync(file));
     const scores = json.categories;
     const url = json.finalUrl;
