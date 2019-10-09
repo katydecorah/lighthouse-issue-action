@@ -2,19 +2,20 @@ name: Lighthouse Audit
 on: push
 
 
-
 jobs:
   audit:
     runs-on: ubuntu-latest
-    env:
-      url: https://katydecorah.com/
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+      - name: Cool step
+        uses: ./sitemap
+        id: cool
       - name: Audit URLs using Lighthouse and ensure performance budget
         uses: treosh/lighthouse-ci-action@v1
         with:
           onlyCategories: performance,accessibility,best-practices,seo
+          urls: ${{ steps.cool.outputs.url }}
       - name: Create scores.md
         uses: ./ # Uses an action in the root directory
         with:
