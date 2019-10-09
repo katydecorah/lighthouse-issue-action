@@ -1,13 +1,13 @@
 name: Lighthouse Audit
 on: push
 
+env:
+  SITEMAP: >-
+    https://katydecorah.com/
+    https://katydecorah.com/playlists/2019-summer/
+    https://katydecorah.com/epicurean/cowboy-cookie-ice-cream/
+    https://katydecorah.com/code/google-sheets-to-gmail-template/
 jobs:
-  env:
-    SITEMAP: >-
-      https://katydecorah.com/
-      https://katydecorah.com/playlists/2019-summer/
-      https://katydecorah.com/epicurean/cowboy-cookie-ice-cream/
-      https://katydecorah.com/code/google-sheets-to-gmail-template/
   audit:
     runs-on: ubuntu-latest
     steps:
