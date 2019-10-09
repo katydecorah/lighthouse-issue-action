@@ -23,6 +23,7 @@ try {
   }, []);
 
   const md = files.reduce((str, file) => {
+    console.log(file)
     const json = JSON.parse(fs.readFileSync(file));
     const scores = json.categories;
     const url = json.finalUrl;
