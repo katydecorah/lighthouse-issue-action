@@ -19,6 +19,11 @@ jobs:
         uses: ./ # Uses an action in the root directory
         with:
           FILEPATH: ${{ github.workspace }}/results/
+      - name: Save results
+        uses: actions/upload-artifact@master
+        with:
+          name: lighthouse-results
+          path: './results'
       - name: Upload results as an artifact
         uses: actions/upload-artifact@master
         with:
