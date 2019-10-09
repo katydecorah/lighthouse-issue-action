@@ -7,14 +7,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Audit live URL
-        uses: jakejarvis/lighthouse-action@master
+      - name: Audit URLs using Lighthouse and ensure performance budget
+        uses: treosh/lighthouse-ci-action@v1
         with:
-          url: "https://katydecorah.com/"
+          urls: |
+            https://katydecorah.com/
+            https://katydecorah.com/playlists/2019-summer/
+            https://katydecorah.com/epicurean/cowboy-cookie-ice-cream/
+            https://katydecorah.com/code/google-sheets-to-gmail-template/
       - name: Create scores.md
         uses: ./ # Uses an action in the root directory
         with:
-          CONTENT_FILEPATH: ${{ github.workspace }}/report/https___katydecorah_com_.report.json
+          FILEPATH: ${{ github.workspace }}/results/
       - name: Upload results as an artifact
         uses: actions/upload-artifact@master
         with:
