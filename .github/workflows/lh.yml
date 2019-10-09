@@ -9,8 +9,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Cool step
-        run: ::set-output name=url::https://katydecorah.com
         id: cool
+        run: ::set-output name=url::https://katydecorah.com
       - name: Audit URLs using Lighthouse and ensure performance budget
         uses: treosh/lighthouse-ci-action@v1
         with:
