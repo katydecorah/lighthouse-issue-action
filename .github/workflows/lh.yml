@@ -1,10 +1,9 @@
 name: Lighthouse Audit
 on: push
-
+env:
+  SITEMAP: ${{'https://katydecorah.com/\nhttps://katydecorah.com/playlists/2019-summer/\nhttps://katydecorah.com/epicurean/cowboy-cookie-ice-cream/\nhttps://katydecorah.com/code/google-sheets-to-gmail-template/'}}
 jobs:
   audit:
-    env:
-      SITEMAP: ${{'https://katydecorah.com/\nhttps://katydecorah.com/playlists/2019-summer/\nhttps://katydecorah.com/epicurean/cowboy-cookie-ice-cream/\nhttps://katydecorah.com/code/google-sheets-to-gmail-template/'}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
