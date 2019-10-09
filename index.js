@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const { writeFile } = require('fs').promises;
 const fs = require('fs');
+const path = require('path');
 const { join } = require('path');
 
 async function main(md) {
@@ -18,7 +19,7 @@ try {
   // get all json files
   const files = [];
   fs.readdir(filePath, (err, files) =>
-    files.filter(file => file.extname('index.html') === '.json')
+    files.filter(file => path.extname('index.html') === '.json')
   );
 
   const md = files.reduce((str, file) => {
