@@ -17,10 +17,10 @@ function evalScore(score) {
 try {
   const filePath = core.getInput('FILEPATH');
   // get all json files
-  const files = [];
-  fs.readdir(filePath, (err, files) =>
-    files.filter(file => path.extname('index.html') === '.json')
-  );
+  let files = fs.readdirSync(filePath).reduce((arr, file) => {
+    arr.push(`${filePath}${file}`);
+    return arr;
+  }, []);
 
   const md = files.reduce((str, file) => {
     const json = JSON.parse(fs.readFileSync(file));
