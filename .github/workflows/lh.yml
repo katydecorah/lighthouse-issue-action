@@ -9,12 +9,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Sitemap env step idk
-        uses: katydecorah/lighthouse-sitemap-action@v1.1
+        uses: katydecorah/lighthouse-sitemap-action@v1.2
       - name: Audit URLs using Lighthouse and ensure performance budget
         uses: treosh/lighthouse-ci-action@v1
         with:
           onlyCategories: performance,accessibility,best-practices,seo
-          url: ${{ env.url }}
+          urls: ${{ env.urls }}
       - name: Create scores.md
         uses: ./ # Uses an action in the root directory
         with:
