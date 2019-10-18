@@ -8,14 +8,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Cool step
-        id: cool
-        run: ::set-output name=url::https://katydecorah.com
+      - name: Sitemap env step idk
+        uses: ./sitemap.js
       - name: Audit URLs using Lighthouse and ensure performance budget
         uses: treosh/lighthouse-ci-action@v1
         with:
           onlyCategories: performance,accessibility,best-practices,seo
-          url: ${{ steps.cool.outputs.url }}
+          url: ${{ env.url }}
       - name: Create scores.md
         uses: ./ # Uses an action in the root directory
         with:
