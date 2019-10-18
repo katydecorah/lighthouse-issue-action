@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Sitemap env step idk
-        uses: ./sitemap.js
+        uses: katydecorah/lighthouse-sitemap-action@v1
       - name: Audit URLs using Lighthouse and ensure performance budget
         uses: treosh/lighthouse-ci-action@v1
         with:
