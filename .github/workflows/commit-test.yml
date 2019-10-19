@@ -1,0 +1,28 @@
+name: Lighthouse Audit
+on: push
+
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Return URLs from sitemap
+        with:
+          SITEMAP: https://staticmapmaker.com/sitemap.xml
+        uses: katydecorah/lighthouse-sitemap-action@v1.3
+      - name: Audit URLs using Lighthouse and ensure performance budget
+        uses: treosh/lighthouse-ci-action@v1
+        with:
+          onlyCategories: performance,accessibility,best-practices,seo
+          urls: ${{ env.urls }}
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A && git commit -m "Lighthouse audit"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
