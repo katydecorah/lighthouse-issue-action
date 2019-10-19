@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v1
       - name: Sitemap env step idk
         with:
-          SITEMAP: https://katydecorah.com/sitemap.xml
+          SITEMAP: https://staticmapmaker.com/sitemap.xml
         uses: katydecorah/lighthouse-sitemap-action@v1.3
       - name: Audit URLs using Lighthouse and ensure performance budget
         uses: treosh/lighthouse-ci-action@v1
