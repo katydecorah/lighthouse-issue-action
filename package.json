@@ -1,7 +1,7 @@
 {
   "name": "lighthouse-issue-action",
   "version": "1.0.0",
-  "description": "Compiles Lighthouse data into a GitHub issue",
+  "description": "Creates a GitHub issue when any Lighthouse score for a page is less than 75%",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,2 +1,3 @@
 # lighthouse-issue-action
-Compiles Lighthouse data into a GitHub issue
+
+Creates a GitHub issue when any Lighthouse score for a page is less than 75%
