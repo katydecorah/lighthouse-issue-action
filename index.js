@@ -22,7 +22,7 @@ try {
     return arr;
   }, []);
 
-  const md = files.reduce((str, file) => {
+  const buildMd = files.reduce((obj, file) => {
     const json = JSON.parse(fs.readFileSync(file));
 
     const scores = json.categories;
@@ -38,16 +38,25 @@ try {
       bestPractices < 0.75 ||
       seo < 0.75
     ) {
-      str += `### Page: ${url}\n\nCategory | Score
+      obj.failing.push(`### ${url}\n\nCategory | Score
   ---|---
   Performance | ${evalScore(perf)}
   Accessibility | ${evalScore(accessibility)}
   Best practices | ${evalScore(bestPractices)}
-  SEO | ${evalScore(seo)}\n\n`;
-    }
+  SEO | ${evalScore(seo)}`);
+} else {
+  obj.passing.push(`* ${url}: Performance (${evalScore(perf)}), Accessibility (${evalScore(accessibility)}), Best practices (${evalScore(bestPractices)}), SEO (${evalScore(seo)})`)
+}
+    return obj;
+  }, {failing: [], passing: []});
 
-    return str;
-  }, '## Scores\n\n');
+  const md = `# Lighthouse audit
+## Failing pages
+${buildMd.failing.length ? buildMd.failing.join('\n\n' : '✨ No failing pages.')}
+
+## Passing pages
+${buildMd.passing.length ? buildMd.passing.join('\n') : 'No passing pages.'}
+`
 
   main(md)
     .catch(err => {
