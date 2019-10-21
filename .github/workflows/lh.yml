@@ -35,7 +35,7 @@ jobs:
           name: scores.md
           path: ./scores.md
       - name: Create Issue From File
-        if: env.create_issue === true
+        if: env.create_issue = true
         uses: peter-evans/create-issue-from-file@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
