@@ -1,0 +1,25 @@
+{
+  "finalUrl": "https://staticmapmaker.com/three/",
+  "categories": {
+    "performance": {
+      "title": "Performance",
+      "id": "performance",
+      "score": 1
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "id": "accessibility",
+      "score": 1
+    },
+    "best-practices": {
+      "title": "Best Practices",
+      "id": "best-practices",
+      "score": 1
+    },
+    "seo": {
+      "title": "SEO",
+      "id": "seo",
+      "score": 1
+    }
+  }
+}

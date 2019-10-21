@@ -1,0 +1,25 @@
+{
+  "finalUrl": "https://staticmapmaker.com/four/",
+  "categories": {
+    "performance": {
+      "title": "Performance",
+      "id": "performance",
+      "score": 0.75
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "id": "accessibility",
+      "score": 0.75
+    },
+    "best-practices": {
+      "title": "Best Practices",
+      "id": "best-practices",
+      "score": 0.75
+    },
+    "seo": {
+      "title": "SEO",
+      "id": "seo",
+      "score": 0.75
+    }
+  }
+}
