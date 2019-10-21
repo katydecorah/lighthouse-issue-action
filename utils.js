@@ -45,7 +45,7 @@ SEO | ${evalScore(seo)}`);
     { failing: [], passing: [] }
   );
 
-  if (failing.length) {
+  if (buildMd.failing.length) {
     core.exportVariable('create_issue', true);
   }
 
