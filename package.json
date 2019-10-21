@@ -4,7 +4,7 @@
   "description": "Creates a GitHub issue when any Lighthouse score for a page is less than 75%",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint . && jest"
   },
   "repository": {
     "type": "git",

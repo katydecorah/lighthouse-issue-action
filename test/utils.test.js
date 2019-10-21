@@ -1,8 +1,8 @@
-const index = require('../');
+const utils = require('../utils');
 
 test('markdownMe', () => {
   expect(
-    index.markdownMe([
+    utils.markdownMe([
       './test/files/1.json',
       './test/files/2.json',
       './test/files/3.json',
@@ -37,7 +37,7 @@ SEO | 🚨0%
 * https://staticmapmaker.com/four/
   Performance (75%), Accessibility (75%), Best practices (75%), SEO (75%)`);
 
-  expect(index.markdownMe(['./test/files/1.json', './test/files/2.json']))
+  expect(utils.markdownMe(['./test/files/1.json', './test/files/2.json']))
     .toEqual(`# Lighthouse audit
 
 ## Failing pages
@@ -64,7 +64,7 @@ SEO | 🚨0%
 
 No passing pages.`);
 
-  expect(index.markdownMe(['./test/files/3.json', './test/files/4.json']))
+  expect(utils.markdownMe(['./test/files/3.json', './test/files/4.json']))
     .toEqual(`# Lighthouse audit
 
 ## Failing pages
