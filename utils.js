@@ -1,4 +1,5 @@
 const fs = require('fs');
+const core = require('@actions/core');
 
 function evalScore(score) {
   return `${score < 0.75 ? '🚨' : ''}${score * 100.0}%`;
@@ -43,6 +44,10 @@ SEO | ${evalScore(seo)}`);
     },
     { failing: [], passing: [] }
   );
+
+  if (failing.length) {
+    core.exportVariable('create_issue', true);
+  }
 
   return `# Lighthouse audit
 
